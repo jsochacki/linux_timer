@@ -4,13 +4,29 @@
 int main()
 {
    TestBed::abbp_timer local_timer;
+   local_timer.clear_timers();
 
-   std::chrono::time_point<std::chrono::steady_clock> t_start = local_timer.sys_clock.now();
-
-   //std::chrono::duration<rep, period>
-   //std::chrono::time_point<std::chrono::steady_clock>;
+   local_timer.tick("print statement 1");
 
    std::cout << "compiled" << std::endl;
+
+   local_timer.tock("print statement 1");
+
+   local_timer.tick("print statement 1");
+   local_timer.tick("print statement 2");
+   local_timer.tock("print statement 2");
+   local_timer.tock("print statement 1");
+   local_timer.tick("print statement 2");
+   local_timer.tock("print statement 2");
+
+   local_timer.print_timer_point_to_point();
+   local_timer.print_timer_point_to_point();
+   local_timer.print_timer_cumulants();
+   local_timer.clear_timers();
+   local_timer.print_timer_point_to_point();
+
+   /*
+   std::chrono::time_point<std::chrono::steady_clock> t_start = local_timer.sys_clock.now();
 
    std::chrono::time_point<std::chrono::steady_clock> t_end = local_timer.sys_clock.now();
 
@@ -21,6 +37,7 @@ int main()
    std::cout << "t_delta = " << timedif << std::endl;
    std::cout << "t_delta = " << timedifi << std::endl;
    std::cout << "t_delta = " << timedifi2 << std::endl;
+*/
 
    return 0;
 
