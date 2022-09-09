@@ -3,8 +3,9 @@
 #include <vector>
 #include <utility>  // for pair
 #include <string>
-#include <algorithm>
 #include <cstdint>
+#include <numeric>
+#include <math.h>
 
 //#include "sys/time.h"
 #include <chrono>
@@ -22,14 +23,10 @@ namespace TestBed
       void print_timer_cumulants(void);
 
       std::chrono::steady_clock sys_clock;
-      int64_t get_delta(void);
       private:
 
-      std::vector<std::pair<std::string, std::chrono::time_point<std::chrono::steady_clock>>> tick_times;
-      std::vector<std::pair<std::string, std::chrono::time_point<std::chrono::steady_clock>>> tock_times;
-      std::vector<std::pair<std::string, std::chrono::duration<int64_t, std::nano>>> event_durations;
-      std::chrono::duration<int64_t, std::nano> time_delta;
+      std::vector<std::pair<std::string, std::vector<std::chrono::time_point<std::chrono::steady_clock>>>> tick_times;
+      std::vector<std::pair<std::string, std::vector<std::chrono::time_point<std::chrono::steady_clock>>>> tock_times;
 
-      std::vector<std::pair<std::string, uint8_t>> event_vector;
    };
 }
