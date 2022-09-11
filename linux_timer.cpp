@@ -1,8 +1,8 @@
-#include "abbp_timer.hpp"
+#include "linux_timer.hpp"
 
 namespace TestBed
 {
-   void abbp_timer::clear_timers(void)
+   void linux_timer::clear_timers(void)
    {
       tick_times.clear();
       tock_times.clear();
@@ -12,7 +12,7 @@ namespace TestBed
       ready_to_print = false;
    }
 
-   void abbp_timer::tick(std::string event_name)
+   void linux_timer::tick(std::string event_name)
    {
       for(auto &string_time_point_pair : tick_times)
       {
@@ -29,7 +29,7 @@ namespace TestBed
                            std::chrono::steady_clock>>(1, sys_clock.now())));
    }
 
-   void abbp_timer::tock(std::string event_name)
+   void linux_timer::tock(std::string event_name)
    {
       for(auto &string_time_point_pair : tock_times)
       {
@@ -46,7 +46,7 @@ namespace TestBed
                            std::chrono::steady_clock>>(1, sys_clock.now())));
    }
 
-   void abbp_timer::timer_pre_print_prep(void)
+   void linux_timer::timer_pre_print_prep(void)
    {
       for(auto string_time_point_pair : tick_times)
       {
@@ -90,7 +90,7 @@ namespace TestBed
       }
    }
 
-   void abbp_timer::print_timer_point_to_point(void)
+   void linux_timer::print_timer_point_to_point(void)
    {
       if(!ready_to_print)
       {
@@ -114,7 +114,7 @@ namespace TestBed
       }
    }
 
-   void abbp_timer::print_timer_cumulants(void)
+   void linux_timer::print_timer_cumulants(void)
    {
       if(!ready_to_print)
       {

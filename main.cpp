@@ -1,9 +1,9 @@
 #include <iostream>
-#include "abbp_timer.hpp"
+#include "linux_timer.hpp"
 
 int main()
 {
-   TestBed::abbp_timer local_timer;
+   TestBed::linux_timer local_timer;
    local_timer.clear_timers();
 
    local_timer.tick("print statement 1");

@@ -13,7 +13,7 @@
 
 namespace TestBed
 {
-   class abbp_timer
+   class linux_timer
    {
       public:
 
