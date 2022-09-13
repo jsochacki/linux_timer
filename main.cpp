@@ -19,6 +19,7 @@ int main()
    local_timer.tick("print statement 2");
    local_timer.tock("print statement 2");
 
+   local_timer.print_timer_all_point_to_point();
    local_timer.print_timer_point_to_point();
    local_timer.print_timer_point_to_point();
    local_timer.print_timer_cumulants();

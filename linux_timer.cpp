@@ -76,7 +76,7 @@ namespace TestBed
                      (tock_times[index].second[0]
                     - tick_times[index].second[0]).count())));
 
-         if(event.second < 1)
+         if(event.second > 1)
          {
             for(uint32_t count = 1; count < event.second; ++count)
             {
@@ -85,6 +85,31 @@ namespace TestBed
                      (tock_times[index].second[count]
                     - tick_times[index].second[count]).count());
             }
+         }
+         ++index;
+      }
+   }
+
+   void linux_timer::print_timer_all_point_to_point(void)
+   {
+      if(!ready_to_print)
+      {
+         this->timer_pre_print_prep();
+         ready_to_print = true;
+      }
+
+      uint32_t index = 0;
+      for(auto string_duration_pair : durations_vector)
+      {
+         uint32_t measurement_number = 0;
+         for(int64_t duration : string_duration_pair.second)
+         {
+            std::cout << "Measurement ["
+               << unsigned(++measurement_number) << "] of ["
+               << count_vector[index].second << "] measurements ["
+               << string_duration_pair.first.c_str() << "] took ["
+               << duration << "] us"
+               << std::endl;
          }
          ++index;
       }

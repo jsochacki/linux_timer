@@ -21,6 +21,7 @@ namespace TestBed
       void tick(std::string event_name);
       void tock(std::string event_name);
       void timer_pre_print_prep(void);
+      void print_timer_all_point_to_point(void);
       void print_timer_point_to_point(void);
       void print_timer_cumulants(void);
 
